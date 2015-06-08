@@ -1,0 +1,137 @@
+<!-- Responsive panel example-->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">City #<%= @city.id %></h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-12">
+            <dl class="dl-horizontal">
+              <dt>City</dt>
+              <dd><%= @city.city %></dd>
+
+            </dl>
+            <div class="btn-group btn-group-justified">
+              <a href="/cities" class="btn btn-primary">
+                <i class="fa fa-chevron-left"></i>
+              </a>
+
+              <!-- <a href="/cities/<%= @city.id %>/edit" class="btn btn-warning"> -->
+                <!-- <i class="fa fa-edit"></i> -->
+              <!-- </a> -->
+
+              <!-- <a href="/delete_city/<%= @city.id %>" class="btn btn-danger" rel="nofollow"> -->
+                <!-- <i class="fa fa-trash-o"></i> -->
+              <!-- </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        <ul class="list-group">
+ <% @city.listings.each do |listing| %>
+   <li class="list-group-item"><a href="/listings/<%= listing.city_id %>"><%= listing.summary %></a></li>
+ <% end %>
+ </ul>
+
+<li><a href="/replies">Replies</a></li>
+
+           <li class="list-group-item">
+          <!-- Validation failure messages -->
+
+<% if @listing.errors.any? %>
+  <% @listing.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<!-- Responsive panel example -->
+
+<div class="row">
+  <div class="col-sm-offset-1 col-sm-10 col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Add Listing</h3>
+      </div>
+      <div class="panel-body">
+        <form action="/create_listing" method="post" class="form-horizontal">
+          <!-- Hidden input for authenticity token to protect from forgery -->
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+          <!-- Label and input for summary -->
+          <div class="form-group">
+            <label for="summary" class="col-sm-2 control-label">
+              Summary
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="summary" name="summary" placeholder="Summary" class="form-control" value="<%= @listing.summary %>">
+            </div>
+          </div>
+
+          <!-- Label and input for address -->
+          <div class="form-group">
+            <label for="address" class="col-sm-2 control-label">
+              Address
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="address" name="address" placeholder="Address" class="form-control" value="<%= @listing.address %>">
+            </div>
+          </div>
+
+          <!-- Label and input for price -->
+          <div class="form-group">
+            <label for="price" class="col-sm-2 control-label">
+              Price
+            </label>
+            <div class="col-sm-10">
+              <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @listing.price %>">
+            </div>
+          </div>
+
+          <!-- Label and input for rented -->
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <div class="checkbox">
+                <label for="rented">
+                  <input type="checkbox" id="rented" name="rented" value="1" <%= "checked" if @listing.rented %>>
+                  Rented
+                </label>
+              </div>
+            </div>
+          </div>
+
+
+              <input type="hidden" id="city_id" name="city_id" value="<%= @city.id %>">
+              <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
+
+
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button class="btn btn-success">
+                Create Listing
+              </button>
+              or
+              <a href="<%= @city_id %>/listings">Cancel</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
+
+
+        </li>
+  </div>
+</div>
+
+<!-- End responsive panel example -->
