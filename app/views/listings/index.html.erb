@@ -1,6 +1,6 @@
 <div class="page-header">
   <h1>
-    Listings
+    My Listings
     <a href="/listings/new" class="btn btn-lg btn-success"><i class="fa fa-plus"></i></a>
   </h1>
 </div>
@@ -33,28 +33,28 @@
           <dt>Price</dt>
           <dd><%= listing.price %></dd>
 
-          <dt>Rented</dt>
-          <dd><%= listing.rented %></dd>
+          <!-- <dt>Rented</dt> -->
+          <!-- <dd><%= listing.rented %></dd> -->
 
           <dt>City</dt>
           <dd><%= listing.city_id %></dd>
 
-          <dt>User</dt>
-          <dd><%= listing.user_id %></dd>
+          <!-- <dt>User</dt> -->
+          <!-- <dd><%= listing.user_id %></dd> -->
 
         </dl>
         <div class="btn-group btn-group-justified">
-       <!--    <a href="listings/<%= listing.id %>" class="btn btn-primary">
-            <i class="fa fa-search-plus"></i>
-          </a> -->
+          <!-- <a href="listings/<%= listing.id %>" class="btn btn-primary"> -->
+            <!-- <i class="fa fa-search-plus"></i> -->
+          <!-- </a> -->
 
-          <a href="/replies/new" class="btn btn-warning">
+          <a href="/listings/<%= listing.id %>/edit" class="btn btn-warning">
             <i class="fa fa-edit"></i>
           </a>
 
-         <!--  <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
+          <a href="/delete_listing/<%= listing.id %>" class="btn btn-danger" rel="nofollow">
             <i class="fa fa-trash-o"></i>
-          </a> -->
+          </a>
         </div>
       </div>
     </div>

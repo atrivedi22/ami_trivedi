@@ -33,12 +33,12 @@
     </div>
         <ul class="list-group">
  <% @city.listings.each do |listing| %>
-   <li class="list-group-item"><a href="/listings/<%= listing.city_id %>"><%= listing.summary %></a></li>
+   <li class="list-group-item"><a href="/listings/<%= listing.id %>"><%= listing.summary %></a></li>
  <% end %>
  </ul>
 
-<li><a href="/replies">Replies</a></li>
-
+<!-- <li><a href="/replies">Replies</a></li>
+ -->
            <li class="list-group-item">
           <!-- Validation failure messages -->
 
