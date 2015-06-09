@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     @listing.price = params[:price]
     @listing.rented = params[:rented]
     @listing.city_id = params[:city_id]
-    @listing.listing_id =params[:listing_id]
+  #@listing.listing_id =params[:listing_id]
     @listing.user_id = params[:user_id]
 
     if @listing.save

@@ -5,6 +5,7 @@ class RepliesController < ApplicationController
 
   def show
     @reply = Reply.find(params[:id])
+
   end
 
   def new
@@ -15,6 +16,8 @@ class RepliesController < ApplicationController
     @reply = Reply.new
     @reply.user_id = params[:user_id]
     @reply.listing_id = params[:listing_id]
+    @reply.listing_id.summary = params [:summary]
+
 
     if @reply.save
       redirect_to "/replies", :notice => "Reply created successfully."
