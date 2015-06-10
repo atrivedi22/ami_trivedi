@@ -31,11 +31,14 @@
         </div>
       </div>
     </div>
+
         <ul class="list-group">
  <% @city.listings.each do |listing| %>
    <li class="list-group-item"><a href="/listings/<%= listing.id %>"><%= listing.summary %></a></li>
+
  <% end %>
  </ul>
+
 
 <!-- <li><a href="/replies">Replies</a></li>
  -->
@@ -117,8 +120,8 @@
               <button class="btn btn-success">
                 Create Listing
               </button>
-              <!-- or -->
-              <!-- <a href="<%= @city_id %>/listings">Cancel</a> -->
+             or
+              <a href="<%= @city_id %>/listings">Cancel</a>
             </div>
           </div>
         </form>
@@ -135,5 +138,6 @@
 </div>
 
 <!-- End responsive panel example -->
+
 
 
