@@ -14,9 +14,8 @@ class RepliesController < ApplicationController
 
   def create
     @reply = Reply.new
-    @reply.user_id = params[:user_id]
+    @reply.user_id = current_user.id
     @reply.listing_id = params[:listing_id]
-    @reply.listing_id.summary = params [:summary]
 
 
     if @reply.save

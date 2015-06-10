@@ -1,8 +1,8 @@
 class ListingsController < ApplicationController
   def index
-    # @listings = Listing.all
-    @city_id = params[:city_id]
-    @listings = Listing.where(city_id: @city_id)
+    @listings = Listing.all
+
+    # @listings = Listing.where(user_id: current_user.id)
   end
 
   def show
